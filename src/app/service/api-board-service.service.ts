@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { BoardService } from '../model/board'
 
-const url = 'http://localhost/8080/api/board/'
+const url = 'http://localhost:8080/api/board/7'
 
 @Injectable({
   providedIn: 'root'

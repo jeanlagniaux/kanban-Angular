@@ -13,7 +13,8 @@ import { ApiUserServiceService } from '../service/api-user-service.service';
 export class MyComponentComponent implements OnInit {
   boards: board[] = [];
 
-  constructor(private boardService: ApiBoardServiceService, private cardService: ApiCardServiceService, private userService: ApiUserServiceService) { }
+  constructor(private boardService: ApiBoardServiceService,
+    private cardService: ApiCardServiceService, private userService: ApiUserServiceService) { }
 
   ngOnInit(): void {
     this.boardService.getBoardById().subscribe((data) => {
