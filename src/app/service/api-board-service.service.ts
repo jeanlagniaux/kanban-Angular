@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { BoardService } from '../model/board'
 
-const url = 'http://localhost:8080/api/board/7'
+const url = '/api/board/7'
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +14,7 @@ export class ApiBoardServiceService {
   }
 
   getBoardById(): Observable<BoardService> {
+    console.log(this.http.get<BoardService>(url));
     return this.http.get<BoardService>(url);
   }
   

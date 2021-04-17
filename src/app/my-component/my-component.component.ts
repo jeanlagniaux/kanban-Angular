@@ -18,7 +18,7 @@ export class MyComponentComponent implements OnInit {
 
   ngOnInit(): void {
     this.boardService.getBoardById().subscribe((data) => {
-      console.log(data.name)
+      console.log(data)
     }
     )
   }
