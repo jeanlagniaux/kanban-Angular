@@ -1,23 +1,24 @@
 export interface CardService {
-    id:       number;
-    name:     string;
-    note:     string;
-    timeToDO: number;
-    status:   string;
-    endDate:  Date;
-    tags:     string[];
-    url:      string;
-    myBoard:  MyBoardService;
+    CardID:      number;
+    CardName:    string;
+    CardNote:    string;
+    CardTODO:    number;
+    CardStatus:  string;
+    CardEndDate: number;
+    tag:         any[];
+    CardUrl:     null;
+    CardBoard:   CardBoard;
 }
 
-export interface MyBoardService {
-    id:          number;
-    name:        string;
-    description: string;
+export interface CardBoard {
+    BoardID:   number;
+    BoardName: string;
+    BoardDesc: string;
 }
+
 
 export class card {
 
-    constructor(public id: number, public name: String, public note: String) {
+    constructor(public CardID: number, public CardName: String, public CardNote: String) {
     }
 }

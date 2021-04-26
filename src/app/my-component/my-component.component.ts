@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IBoard } from '../model/board';
+import { IBoard, board } from '../model/board';
+import { card } from '../model/card';
 import { ApiBoardServiceService } from '../service/api-board-service.service';
 import { ApiCardServiceService } from '../service/api-card-service.service';
 import { ApiUserServiceService } from '../service/api-user-service.service';
@@ -12,29 +13,45 @@ import { ApiUserServiceService } from '../service/api-user-service.service';
 })
 
 export class MyComponentComponent implements OnInit {
-  boards: IBoard[] = [];
+  boards: board[] = [];
+  cards: card[] = [];
+  selectedBoardId!: board
   boardName: string = '';
 
   constructor(private boardService: ApiBoardServiceService,
     private cardService: ApiCardServiceService, private userService: ApiUserServiceService) { }
 
-  // ngOnInit(): void {
-  //   this.boardService.getBoards().subscribe((data) => {
-  //     data.results.forEach((e, index) => {
-  //       console.log(e.BoardID)
-  //       this.boards.push(new board(e.BoardID, e.BoardName, e.BoardDesc));
-  //     });
-  //   });
-  // }
+  ngOnInit(): void {
 
-  call() {
-    this.boardService.getBoards().subscribe( res => {
-      this.boards = res.body
+    this.boardService.getBoards().subscribe((data) => {
+      data.forEach((e, index) => {
+        this.boards.push(new board(e.BoardID, e.BoardName, e.BoardDesc));
+      });
+      console.log(this.boards)
     });
   }
 
-  ngOnInit(): void {
-     this.call();
+  onClickGo() {
+    if (this.selectedBoardId != null) {
+      this.cardService.getCardByBoardId(this.selectedBoardId.BoardID).subscribe((data) => {
+        data.forEach((e, index) => {
+          this.cards.push(new card(e.CardID, e.CardName, e.CardNote));
+        });
+      }); 
     }
+    
+  }
+
+
+  // call() {
+  //   this.boardService.getBoards().subscribe( res => {
+  //     this.boards = res.body
+  //     console.log(res)
+  //   });
+  // }
+
+  // ngOnInit(): void {
+  //    this.call();
+  //   }
 
 }

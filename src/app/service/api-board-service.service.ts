@@ -13,6 +13,10 @@ export class ApiBoardServiceService {
   constructor(private http: HttpClient) {
   }
 
+  // getBoards() {
+  //   return this.http.get<IBoard[]>(url, {observe: 'response'});
+  // }
+  
   getBoards(): Observable<IBoard[]> {
     return this.http.get<IBoard[]>(url);
   }
