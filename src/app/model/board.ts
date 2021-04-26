@@ -1,11 +1,10 @@
-export interface BoardService {
-    id:          number;
-    name:        string;
-    description: string;
+export interface IBoard {
+    BoardID:   number;
+    BoardName: string;
+    BoardDesc: string;
 }
 
 export class board {
-
-    constructor(public id: number, public name: String, public description: String) {
+    constructor(public BoardID: number, public BoardName: String, public BoardDesc: String) {
     }
 }
