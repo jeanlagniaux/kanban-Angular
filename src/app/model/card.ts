@@ -16,9 +16,8 @@ export interface CardBoard {
     BoardDesc: string;
 }
 
-
 export class card {
 
-    constructor(public CardID: number, public CardName: String, public CardNote: String) {
+    constructor(public CardID: number, public CardName: String, public CardNote: String, public CardStatus: String) {
     }
 }

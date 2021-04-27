@@ -1,27 +1,20 @@
-<div class="container">
-
-    <div class="input-group mb-3">
-        <select [(ngModel)]="selectedBoardId" class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon" style="width: 25%;">            <option selected>Choisir...</option>
-            <option [ngValue]="board" *ngFor="let board of boards">{{board.BoardName}}</option>
-        </select>
-        <div class="input-group-append">
-          <button (click)="onClickGo()" class="btn btn-outline-secondary" type="button">Sélectionnez le Tableau</button>
-        </div>
+<div class="input-group mb-3">
+    <select [(ngModel)]="selectedBoardId" class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon" style="width: 25%;">            <option selected>Choisir...</option>
+        <option [ngValue]="board" *ngFor="let board of boards">{{board.BoardName}}</option>
+    </select>
+    <div class="input-group-append">
+        <button (click)="onClickGo()" class="btn btn-outline-secondary" type="button">Sélectionnez le Tableau</button>
     </div>
-
-    <div class="container">
-        <div *ngFor="let card of cards">
-            <div class="d-flex flex-row">
-                <div class="card text-white bg-primary mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">{{card.CardName}}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                        <p class="card-text">{{card.CardNote}}</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 </div>
+
+<div *ngIf="selectedBoardId">
+    <app-show-card [board]="selectedBoardId" [card]="cards"></app-show-card>
+    <button (click)="OnclickCreate()" class="btn btn-outline-secondary" type="button">Créer une carte pour ce tableau </button>
+</div>
+
+
+
+
+
+
