@@ -23,7 +23,6 @@ export class ShowCardComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.cards = [];
-    throw new Error('Method not implemented.');
   }
 
   ngOnInit(): void {

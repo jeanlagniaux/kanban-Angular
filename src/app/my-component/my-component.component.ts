@@ -4,12 +4,14 @@ import { card } from '../model/card';
 import { ApiBoardServiceService } from '../service/api-board-service.service';
 import { ApiCardServiceService } from '../service/api-card-service.service';
 import { ApiUserServiceService } from '../service/api-user-service.service';
+import { Router } from '@angular/router';
+import { CreateCardComponent } from '../create-card/create-card.component';
 
 @Component({
   selector: 'app-my-component',
   templateUrl: './my-component.component.html',
   styleUrls: ['./my-component.component.css'],
-  providers: [ApiBoardServiceService, ApiCardServiceService, ApiUserServiceService]
+  providers: [ApiBoardServiceService, ApiCardServiceService, ApiUserServiceService, CreateCardComponent]
 })
 
 export class MyComponentComponent implements OnInit, OnDestroy {
@@ -19,7 +21,7 @@ export class MyComponentComponent implements OnInit, OnDestroy {
   boardName: String = '';
 
   constructor(private boardService: ApiBoardServiceService,
-    private cardService: ApiCardServiceService, private userService: ApiUserServiceService) { }
+    private cardService: ApiCardServiceService, private userService: ApiUserServiceService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -41,21 +43,14 @@ export class MyComponentComponent implements OnInit, OnDestroy {
         data.forEach((e, index) => {
           this.cards.push(new card(e.CardID, e.CardName, e.CardNote, e.CardStatus));
         });
-      }); 
+      });
       this.boardName = this.selectedBoardId.BoardName;
-      console.log(this.cards)
     }
   }
 
-  
-  OnclickCreate() {
-    //envoyer vers une nouvelle page =>
-      // dans cette page créer une formulaire
-      // a l'aide du formulaire faire call API post pour créer une carte 
-    
+  creatCard() {
+    this.router.navigate(['/createCard', this.selectedBoardId]) 
   }
-
-
 
   // call() {
   //   this.boardService.getBoards().subscribe( res => {
