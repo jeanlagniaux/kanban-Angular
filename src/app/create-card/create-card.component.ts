@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, FormControlDirective } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { card } from '../model/card';
 import { ApiCardServiceService } from '../service/api-card-service.service';
@@ -11,7 +11,7 @@ import { ApiCardServiceService } from '../service/api-card-service.service';
 })
 export class CreateCardComponent implements OnInit {
 
-  myBoardid: string;
+  myBoardid: number;
   cards: card[] = [];
   checkoutForm = this.formBuilder.group({
     CardName: '',
@@ -19,7 +19,7 @@ export class CreateCardComponent implements OnInit {
     CardEndDate: '',
     CardNote: '',
     CardBoard: {
-      BoardID: (new FormControl(Number(this.routeActive.snapshot.paramMap.get('tab'))))
+      BoardID: Number(this.routeActive.snapshot.paramMap.get('tab'))
     }
   })
 
@@ -27,7 +27,7 @@ export class CreateCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.myBoardid = this.routeActive.snapshot.paramMap.get('tab');
+    this.myBoardid = Number(this.routeActive.snapshot.paramMap.get('tab'));
     console.log(this.myBoardid);
   }
 
