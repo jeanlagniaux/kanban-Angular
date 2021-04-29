@@ -1,20 +1,14 @@
-<div class="input-group mb-3">
-    <select [(ngModel)]="selectedBoardId" class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon" style="width: 25%;">
-        <option selected>Choisir...</option>
-        <option [ngValue]="board" *ngFor="let board of boards">{{board.BoardName}}</option>
-    </select>
-    <div class="input-group-append px-2">
-        <button (click)="onClickGo()" class="btn btn-outline-secondary" type="button">Affichez les cartes</button>
-    </div> 
+<div class="container mt-5">
+    <div class="input-group mb-3">
+        <select [(ngModel)]="selectedBoardId" class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon" style="width: 25%;">
+            <option [ngValue]="board" *ngFor="let board of boards">{{board.BoardName}}</option>
+        </select>
+        <div class="input-group-append px-2">
+            <button (click)="onClickGo()" class="btn btn-outline-secondary" type="button">Affichez les cartes</button>
+        </div>
+    </div>
+    
+    <div *ngIf="selectedBoardId">
+        <app-show-card [board]="selectedBoardId" [card]="cards"></app-show-card>
+    </div>
 </div>
-
-<div *ngIf="selectedBoardId">
-    <app-show-card [board]="selectedBoardId" [card]="cards"></app-show-card>
-    <button (click)="creatCard()" class="btn btn-primary" style="color: white;" type="button">Créer une carte pour ce tableau </button>
-</div>
-
-
-
-
-
-

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormControl } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { card } from '../model/card';
+import { ApiCardServiceService } from '../service/api-card-service.service';
 
 @Component({
   selector: 'app-create-card',
@@ -9,12 +12,32 @@ import { ActivatedRoute } from '@angular/router';
 export class CreateCardComponent implements OnInit {
 
   myBoardid: string;
+  cards: card[] = [];
+  checkoutForm = this.formBuilder.group({
+    CardName: '',
+    CardStatus: '',
+    CardEndDate: '',
+    CardNote: '',
+    CardBoard: {
+      BoardID: (new FormControl(Number(this.routeActive.snapshot.paramMap.get('tab'))))
+    }
+  })
 
-  constructor(private routeActive: ActivatedRoute) { 
+  constructor(private routeActive: ActivatedRoute, private formBuilder: FormBuilder, private cardService: ApiCardServiceService) { 
   }
 
   ngOnInit(): void {
     this.myBoardid = this.routeActive.snapshot.paramMap.get('tab');
+    console.log(this.myBoardid);
   }
+
+  onSubmit(): void {
+    console.log(this.myBoardid);
+    console.warn('Création de la carte avec les données :', this.checkoutForm.value);
+    this.cardService.postCreatCard(this.checkoutForm.value).subscribe(res => console.log(res))
+    //this.checkoutForm.reset();
+  }
+
+
 
 }

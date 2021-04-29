@@ -7,7 +7,7 @@ export interface CardService {
     CardEndDate: number;
     tag:         any[];
     CardUrl:     null;
-    CardBoard:   CardBoard;
+    CardBoard:   CardBoard[];
 }
 
 export interface CardBoard {
@@ -17,7 +17,6 @@ export interface CardBoard {
 }
 
 export class card {
-
     constructor(public CardID: number, public CardName: String, public CardNote: String, public CardStatus: String) {
     }
 }

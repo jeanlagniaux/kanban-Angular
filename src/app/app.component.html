@@ -1,12 +1,8 @@
 <div class="p-4">
     <h1 style="font-size: 4em;"> {{ title }}! </h1>
-    <div class="container pt-5" *ngIf="_router.url == '/'">
-      <app-my-component></app-my-component>
-    </div>
-    <div class="container pt-5" *ngIf="_router.url == '/createCard'">
-      <app-create-card></app-create-card>
-    </div>
-      
+    <body>
+        <router-outlet></router-outlet>
+    </body>
 </div>
   
   

@@ -1,5 +1,6 @@
 import { Input, OnDestroy } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { board } from '../model/board';
 import { card } from '../model/card';
 
@@ -18,7 +19,7 @@ export class ShowCardComponent implements OnInit, OnDestroy {
   cards!: card[];
   
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnDestroy(): void {
@@ -26,6 +27,10 @@ export class ShowCardComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+  }
+  
+  creatCard() {
+      this.router.navigate(['/createCard', this.selectedBoardId.BoardID]);    
   }
 
 }

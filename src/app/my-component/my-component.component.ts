@@ -15,22 +15,17 @@ import { CreateCardComponent } from '../create-card/create-card.component';
 })
 
 export class MyComponentComponent implements OnInit, OnDestroy {
-  boards: board[] = [];
+  boards: IBoard[] = [];
   cards: card[] = [];
   selectedBoardId!: board;
   boardName: String = '';
+  boardId: String;
 
   constructor(private boardService: ApiBoardServiceService,
-    private cardService: ApiCardServiceService, private userService: ApiUserServiceService, private router: Router) { }
+    private cardService: ApiCardServiceService, private userService: ApiUserServiceService,) { }
 
   ngOnInit(): void {
-
-    this.boardService.getBoards().subscribe((data) => {
-      data.forEach((e, index) => {
-        this.boards.push(new board(e.BoardID, e.BoardName, e.BoardDesc));
-      });
-      console.log(this.boards)
-    });
+    this.boardService.getBoards().subscribe(res => this.boards = res.body)
   }
   ngOnDestroy(): void {
     this.cards = [];
@@ -38,29 +33,9 @@ export class MyComponentComponent implements OnInit, OnDestroy {
 
   onClickGo() {
     if (this.selectedBoardId != null) {
-      this.cardService.getCardByBoardId(this.selectedBoardId.BoardID).subscribe((data) => {
-        this.cards = [];
-        data.forEach((e, index) => {
-          this.cards.push(new card(e.CardID, e.CardName, e.CardNote, e.CardStatus));
-        });
-      });
-      this.boardName = this.selectedBoardId.BoardName;
+      this.cardService.getCardByBoardId(this.selectedBoardId.BoardID).subscribe( res => this.cards = res.body);
+      this.boardId = String(this.selectedBoardId.BoardID);
     }
   }
-
-  creatCard() {
-    this.router.navigate(['/createCard', this.selectedBoardId]) 
-  }
-
-  // call() {
-  //   this.boardService.getBoards().subscribe( res => {
-  //     this.boards = res.body
-  //     console.log(res)
-  //   });
-  // }
-
-  // ngOnInit(): void {
-  //    this.call();
-  //   }
 
 }
