@@ -10,7 +10,7 @@ Run `ng serve` pour lancer l'application sur un serveur local.
 
 Vueillez aussi consulter le readme de ce repository
 
-**Vueillez utilisez le script sir_database.sql présent a la racine du repository kanban-Angular afin de faciliter grandement l'utilisation de l'application**
+**Vueillez utilisez le script sir_database.sql présent a la racine du repository kanban-Angular afin de faciliter grandement l'utilisation de l'application** : https://github.com/jeanlagniaux/kanban-Angular/blob/master/sir_database.sql
 
 
 exemple de ce à quoi devrait resembler la page d'acueille de l'application : 
