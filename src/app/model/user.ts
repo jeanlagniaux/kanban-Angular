@@ -1,27 +1,28 @@
 export interface UserService {
-    mail:     string;
-    name:     string;
-    myBoards: MyBoardService[];
-    cards:    CardService[];
+    mail:  string;
+    name:  string;
+    board: Iboard[];
+    card:  CardService[];
+}
+
+export interface Iboard {
+    BoardID:   number;
+    BoardName: string;
+    BoardDesc: string;
 }
 
 export interface CardService {
-    id:       number;
-    name:     string;
-    note:     string;
-    timeToDO: number;
-    status:   string;
-    endDate:  Date;
-    tags:     string[];
-    url:      string;
-    myBoard:  MyBoardService;
+    CardID:      number;
+    CardName:    string;
+    CardNote:    string;
+    CardTODO:    number;
+    CardStatus:  string;
+    CardEndDate: null;
+    tag:         any[];
+    CardUrl:     null;
+    CardBoard:   Iboard;
 }
 
-export interface MyBoardService {
-    id:          number;
-    name:        string;
-    description: string;
-}
 
 export class user {
 

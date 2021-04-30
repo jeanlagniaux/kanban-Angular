@@ -6,6 +6,7 @@ import { ApiCardServiceService } from '../service/api-card-service.service';
 import { ApiUserServiceService } from '../service/api-user-service.service';
 import { Router } from '@angular/router';
 import { CreateCardComponent } from '../create-card/create-card.component';
+import { user } from '../model/user';
 
 @Component({
   selector: 'app-my-component',
@@ -14,9 +15,10 @@ import { CreateCardComponent } from '../create-card/create-card.component';
   providers: [ApiBoardServiceService, ApiCardServiceService, ApiUserServiceService, CreateCardComponent]
 })
 
-export class MyComponentComponent implements OnInit, OnDestroy {
+export class MyComponentComponent implements OnInit{
   boards: IBoard[] = [];
   cards: card[] = [];
+  users: user[] = [];
   selectedBoardId!: board;
   boardName: String = '';
   boardId: String;
@@ -26,9 +28,7 @@ export class MyComponentComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.boardService.getBoards().subscribe(res => this.boards = res.body)
-  }
-  ngOnDestroy(): void {
-    this.cards = [];
+    this.getUser();
   }
 
   onClickGo() {
@@ -36,6 +36,10 @@ export class MyComponentComponent implements OnInit, OnDestroy {
       this.cardService.getCardByBoardId(this.selectedBoardId.BoardID).subscribe( res => this.cards = res.body);
       this.boardId = String(this.selectedBoardId.BoardID);
     }
+  }
+
+  getUser(){
+    this.userService.getUser().subscribe(res => this.users = res.body);
   }
 
 }
