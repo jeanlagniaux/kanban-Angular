@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MyComponentComponent } from './my-component/my-component.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatCardModule} from '@angular/material/card';
 import { ShowCardComponent } from './show-card/show-card.component';
 import { CreateCardComponent } from './create-card/create-card.component';
 
@@ -24,7 +23,6 @@ import { CreateCardComponent } from './create-card/create-card.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

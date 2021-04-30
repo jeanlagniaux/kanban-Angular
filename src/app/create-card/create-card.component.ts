@@ -36,9 +36,7 @@ export class CreateCardComponent implements OnInit {
     console.log(this.myBoardid);
     console.warn('Création de la carte avec les données :', this.checkoutForm.value);
     this.cardService.postCreatCard(this.checkoutForm.value).subscribe(res => console.log(res));
-    this.router.navigate(['/']);
-
-    //this.checkoutForm.reset();
+    //this.router.navigate(['/']);
   }
 
 }
