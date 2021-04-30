@@ -17,4 +17,4 @@ exemple de ce à quoi devrait resembler la page d'acueille de l'application :
 ainsi que la page de création d'une carte : 
 ![](https://github.com/jeanlagniaux/kanban-Angular/raw/master/img/createCard.png)
 
-N'hésitez pas à me contacter : jeanlagniaux35@gmail.com pour toute question ! 
+N'hésitez pas à me contacter : jeanlagniaux35@gmail.com pour toutes questions ! 
