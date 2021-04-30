@@ -4,6 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 (https://github.com/[jeanlagniaux]/[kanban-Angular]/blob/[master]/create card.png?raw=true)
 
+https://github.com/jeanlagniaux/kanban-Angular/blob/9eeeeb073684c461a3f512298992524b328f0c3b/create%20card.png
 
 ## Development server
 
