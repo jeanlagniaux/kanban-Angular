@@ -36,7 +36,12 @@ export class CreateCardComponent implements OnInit {
     console.log(this.myBoardid);
     console.warn('Création de la carte avec les données :', this.checkoutForm.value);
     this.cardService.postCreatCard(this.checkoutForm.value).subscribe(res => console.log(res));
-    //this.router.navigate(['/']);
+    setTimeout(() => {
+      console.log('sleep to wait for post');
+      this.router.navigate(['/']);
+      // And any other code that should run only after 5s
+    }, 1000);
+
   }
 
 }
