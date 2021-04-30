@@ -23,7 +23,8 @@ export class CreateCardComponent implements OnInit {
     }
   })
 
-  constructor(private routeActive: ActivatedRoute, private formBuilder: FormBuilder, private cardService: ApiCardServiceService) { 
+  constructor(private routeActive: ActivatedRoute, private formBuilder: FormBuilder, private cardService: ApiCardServiceService
+    , private router: Router) {
   }
 
   ngOnInit(): void {
@@ -34,10 +35,11 @@ export class CreateCardComponent implements OnInit {
   onSubmit(): void {
     console.log(this.myBoardid);
     console.warn('Création de la carte avec les données :', this.checkoutForm.value);
-    this.cardService.postCreatCard(this.checkoutForm.value).subscribe(res => console.log(res))
+    this.cardService.postCreatCard(this.checkoutForm.value).subscribe(res => console.log(res));
+    this.router.navigate(['/']);
+
     //this.checkoutForm.reset();
   }
 
-
-
 }
+
