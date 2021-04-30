@@ -7,7 +7,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Run `ng serve` pour lancer l'application sur un serveur local. 
 
 **Il faut lancer le backend JAVA qui ce trouve au repos : https://github.com/jeanlagniaux/JaxRSOpenAPI au TAG 2.0**.
+
 Vueillez aussi consulter le readme de ce repository
+
 **Vueillez utilisez le script sir_database.sql présent a la racine du repository kanban-Angular afin de faciliter grandement l'utilisation de l'application**
 
 
