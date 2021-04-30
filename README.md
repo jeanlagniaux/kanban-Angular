@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
 
-![alt text](https://github.com/[jeanlagniaux]/[kanban-Angular]/blob/[master]/create card.png?raw=true)
+(https://github.com/[jeanlagniaux]/[kanban-Angular]/blob/[master]/create card.png?raw=true)
 
 
 ## Development server
