@@ -1,31 +1,20 @@
-# KanbanApp
+# KanbanApp by Jean LAGNIAUX and Théo DENES
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
 
-(https://github.com/[jeanlagniaux]/[kanban-Angular]/blob/[master]/create card.png?raw=true)
+## Lancer le serveur et tester l'application : 
 
-https://github.com/jeanlagniaux/kanban-Angular/blob/9eeeeb073684c461a3f512298992524b328f0c3b/create%20card.png
+Run `ng serve` pour lancer l'application sur un serveur local. 
 
-## Development server
+**Il faut lancer le backend JAVA qui ce trouve au repos : https://github.com/jeanlagniaux/JaxRSOpenAPI au TAG 2.0**
+pour voir comment lancer veuillez vous référer au readme de ce repository. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+exemple de ce à quoi devrait resembler la page d'acueille de l'application : 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![](https://github.com/jeanlagniaux/kanban-Angular/raw/master/img/home.png)
 
-## Build
+ainsi que la page de création d'une carte : 
+![](https://github.com/jeanlagniaux/kanban-Angular/raw/master/img/createCard.png)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+N'hésitez pas à me contacter : jeanlagniaux35@gmail.com pour toute question ! 
